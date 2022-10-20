@@ -1,0 +1,25 @@
+для файла general_data.js
+
+http://rubrik-statistik/data?category=2&region=1&claster=1&reklama=1
+
+на вход принимаются параметры:
+category - то что слева(разводная)
+region - первый селект
+claster - второй селект
+reklama - третий селект
+
+по умолчанию 
+?category=2&region=1&claster=1&reklama=1
+______________________________________________________
+
+для файла fillters.js
+
+http://rubrik-statistik/fillers
+
+_______________________________________________________
+
+для файла categories.js
+
+http://rubrik-statistik/categories
+
+

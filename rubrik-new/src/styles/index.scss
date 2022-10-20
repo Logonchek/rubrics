@@ -1,0 +1,318 @@
+/** @format */
+
+//как использовать - main_content{@include mainContent}
+.main_content {
+	@include mainContent(16px, $main_text_color);
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+
+.custom-checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.custom-checkbox + label {
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+}
+
+.custom-checkbox + label::before {
+	content: '';
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	border: 1px solid #adb5bd;
+	border-radius: 0.25em;
+	margin-right: 1em;
+	background-repeat: no-repeat;
+	background-position: 52% 50%;
+	background-size: 70%;
+}
+
+.custom-checkbox:checked + label::before {
+	border-color: #0b76ef;
+	background-color: #0b76ef;
+	background-image: url('https://www.pulscen.ru/system/ckeditor_assets/pictures/312147/content_vector_60.png');
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
+	border-color: #b3d7ff;
+}
+/* стили для активного состояния чекбокса (при нажатии на него) */
+.custom-checkbox:not(:disabled):active + label::before {
+	background-color: #b3d7ff;
+	border-color: #b3d7ff;
+}
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked) + label::before {
+	border-color: #80bdff;
+}
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled + label::before {
+	background-color: #e9ecef;
+}
+
+* {
+	scroll-behavior: smooth;
+}
+.fat {
+	font-weight: 700 !important;
+}
+input {
+	margin-right: 4px;
+}
+
+.adjustable {
+	.adjustable__item {
+		padding: 15px 16px;
+	}
+	.adjustable__item:hover {
+		background: #fff;
+		cursor: pointer;
+	}
+}
+.content {
+	background: #fff;
+	padding: calc(var(--block) - 10px) var(--block);
+	.filters {
+		display: none;
+		grid-auto-flow: column;
+		grid-gap: 16px;
+		.filters__item {
+			display: grid;
+			grid-gap: 8px;
+			max-width: 280px;
+			width: 100%;
+		}
+		select {
+			padding: 20px 30px;
+			border-radius: 8px;
+			background: #ffffff;
+			border: 2px solid #e6e5e2;
+			outline: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			position: relative;
+			background: url('https://www.pulscen.ru/system/ckeditor_assets/pictures/300222/content_vector_16.png') no-repeat 93%;
+		}
+		select:hover {
+			cursor: pointer;
+		}
+	}
+	.header {
+		margin-top: calc(var(--block) - 10px);
+		.header__title {
+			font-weight: 700;
+			margin-bottom: 2px;
+		}
+		.header__subtitle {
+			border-top: 2px solid #e6e5e2;
+			width: fit-content;
+			margin-top: 2px;
+		}
+	}
+	.chart {
+		margin: 20px 0 var(--block);
+	}
+	.statistics {
+		display: grid;
+		grid-gap: 30px;
+		margin-top: 36px;
+		.parent {
+			color: $corporate_color;
+			font-weight: 700;
+			display: grid;
+			grid-gap: 30px;
+
+			.parent__col:nth-child(1) {
+				cursor: pointer;
+			}
+			.parent__name {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				align-items: flex-start;
+			}
+		}
+		.parentDate {
+			display: grid !important;
+			color: $corporate_color;
+		}
+		.children {
+			.parent__name {
+				padding-left: 30px;
+			}
+		}
+		.children2 {
+			display: grid;
+			grid-gap: 30px;
+			margin-top: 30px;
+			.parent__name {
+				padding-left: 60px;
+			}
+		}
+		.parent__col,
+		.children__col {
+			@include grid(80px, 270px 4fr);
+		}
+		.parent__numbers {
+			@include grid(calc(var(--block) + 10px), repeat(6, 82px));
+			justify-self: baseline;
+			font-weight: 400;
+			cursor: alias;
+		}
+
+		.children,
+		.children2 {
+			display: none;
+			color: rgb(90, 90, 90);
+			font-weight: 400;
+		}
+		.childrenShow {
+			display: block;
+		}
+	}
+
+	.trafficSumWrapper {
+		margin: 40px -40px 0;
+		padding: 60px 40px;
+		background: #f6f5f373;
+		color: $corporate_color;
+		display: none;
+		.SumWrapper__title {
+			margin-bottom: 20px;
+			color: $main_text_color;
+		}
+		.trafficSum__tableMount {
+			display: grid;
+			grid-template-columns: 0.1fr 1fr 3fr;
+			grid-gap: 40px;
+		}
+		.trafficSum__table {
+			display: grid;
+			grid-template-columns: 0.1fr 1fr 3fr;
+			grid-gap: 40px;
+			.traffic__title {
+				font-weight: 700;
+			}
+			.traffic__close {
+				cursor: pointer;
+				align-self: center;
+				width: 10px;
+			}
+		}
+		.trafficSum_mount {
+			display: none;
+		}
+		.trafficSum {
+			margin-top: 20px;
+			display: grid;
+			grid-gap: 30px;
+		}
+		.traffic__number {
+			@include grid(calc(var(--block) + 10px), repeat(6, 82px));
+		}
+		.trafficResult {
+			display: grid;
+			grid-template-columns: 0.1fr 1fr 3fr;
+			grid-gap: 40px;
+			margin-top: 20px;
+			padding-top: 20px;
+			border-top: 1px solid rgba(121, 121, 121, 0.267);
+			.result__title {
+				font-weight: 700;
+			}
+			.trafficResult__number {
+				@include grid(calc(var(--block) + 10px), repeat(6, 82px));
+			}
+		}
+	}
+	.statistics__btnAdd {
+		display: none;
+		background: #3b8dd2;
+		color: white;
+		padding: 16px 30px;
+		margin-top: 24px;
+		border: 1px solid;
+		border-radius: 5px;
+		// cursor: pointer;
+	}
+	.chart {
+		max-width: 750px !important;
+	}
+
+	.tabs {
+		.tabs__item {
+			display: none;
+		}
+		.all {
+			display: block;
+			.all__wrapper {
+				@include grid(16px, 1fr 2fr);
+				margin-top: 40px;
+			}
+			.all__block {
+				display: grid;
+				grid-gap: 24px;
+				.all__btn {
+					background: rgba(253, 183, 183, 0);
+					padding: 15px 30px;
+					border-radius: 5px;
+					max-width: fit-content;
+					border: 1px solid $corporate_color;
+					color: $corporate_color;
+					transition-duration: 0.5s;
+				}
+				.all__btn:hover {
+					cursor: pointer;
+					background: $corporate_color;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1920px) {
+}
+
+@media (max-width: 1440px) {
+	.content {
+		.statistics {
+			.parent__col {
+				grid-gap: 28px;
+			}
+			.parent__numbers {
+				display: grid;
+				grid-template-columns: repeat(6, 74px);
+			}
+			.children__col {
+				grid-gap: 28px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1366px) {
+}
+
+@media (max-width: 1024px) {
+	:root {
+		--section: 40px;
+		--block: 24px;
+	}
+}
+
+@media (max-width: 800px) {
+}
+
+@media (max-width: 660px) {
+}
+@media (max-width: 480px) {
+}

@@ -1,0 +1,638 @@
+<!-- @format -->
+<!-- у каждого названия должен быть name-->
+<!--valueCheck для каждого уникальный-->
+<!-- data-parent, data-children, data-parentChildren имеет одно значение и  уникальный для каждой числовой группы -->
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>оставить товары</title>
+		<link href="https://www.pulscen.ru/system/ckeditor_assets/attachments/319895/bundle.css" rel="stylesheet"
+	/></head>
+	<body class="js-body">
+		<div class="main_content">
+			<div class="adjustable section_h4">
+				<p class="adjustable__item" id="all">Все рубрики</p>
+				<p class="adjustable__item" id="material">Материалы</p>
+				<p class="adjustable__item" id="equipment">Оборудование</p>
+				<p class="adjustable__item" id="goods">Потребительские товары</p>
+				<p class="adjustable__item" id="food">Продовольствие, сельское хозяйство</p>
+				<p class="adjustable__item" id="build">Строительство и ремонт</p>
+				<p class="adjustable__item" id="transport">Транспорт</p>
+			</div>
+			<div class="content">
+				<div class="filters">
+					<div class="filters__item">
+						<label for="region">Регионы</label>
+						<select class="filters__section">
+							<option value="all">Все регионы</option>
+							<option value="regionKazakhstan">Казахстан</option>
+							<option value="regionBelarus">Беларусь</option>
+							<option value="regionPovolzhye">Поволжье</option>
+						</select>
+					</div>
+					<div class="filters__item">
+						<label for="cluster">Статистика кластеров</label>
+						<select class="filters__section">
+							<option value="all">Все</option>
+							<option value="cluster1">кластер 1</option>
+							<option value="cluster2">кластер 2</option>
+							<option value="cluster3">кластер 3</option>
+						</select>
+					</div>
+					<div class="filters__item">
+						<label for="promotion">Статистика внутренней рекламы</label>
+						<select class="filters__section">
+							<option value="all">Все</option>
+							<option value="promotion1">реклама1</option>
+							<option value="promotion2">реклама2</option>
+							<option value="promotion3">реклама3</option>
+						</select>
+					</div>
+				</div>
+				<div class="tabs">
+					<div class="tabs__item all" data-tab="all">
+						<p class="section_h4 fat">все рубрики</p>
+						<div class="all__wrapper">
+							<div class="all__block">
+								<div class="all__btn" id="material">Материалы</div>
+								<div class="all__btn" id="equipment">Оборудование</div>
+								<div class="all__btn" id="goods">Потребительские товары</div>
+							</div>
+							<div class="all__block">
+								<div class="all__btn" id="food">Продовольствие, сельское хозяйство</div>
+								<div class="all__btn" id="build">Строительство и ремонт</div>
+								<div class="all__btn" id="transport">Транспорт</div>
+							</div>
+						</div>
+					</div>
+					<div class="tabs__item material" data-tab="material">
+						<div class="header">
+							<div class="header__title section_h4">Материалы</div>
+							<div class="header__subtitle">Посещаемость главной страницы</div>
+						</div>
+						<!-- тут будет график-->
+						<div class="chart">
+							<canvas id="materialChart"></canvas>
+						</div>
+						<!-- тут будет график-->
+						<div class="statistics">
+							<div class="parentDate">
+								<div class="parent__col">
+									<div></div>
+									<div class="parent__numbers fat">
+										<p>янв.21</p>
+										<p>фев.21</p>
+										<p>мар.21</p>
+										<p>апр.21</p>
+										<p>май.21</p>
+										<p>июн.21</p>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionKazakhstan cluster1 promotion1">
+								<div class="parent__col">
+									<div class="parent__name" data-parent="parent1">
+										<input class="custom-checkbox" type="checkbox" valueCheck="1" data-parentCheck="1" id="metaltt" name="Металлы, металлопрокат черный и нержавеющий" />
+										<label for="metaltt"> </label>Металлы, металлопрокат черный и нержавеющий
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">15 4194</div>
+										<div class="number__item">154 4191</div>
+										<div class="number__item">154 4197</div>
+										<div class="number__item">15 4198</div>
+										<div class="number__item">154 4199</div>
+										<div class="number__item">14 4196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent1">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent1">
+											<input class="custom-checkbox" type="checkbox" data-check="1" valueCheck="2" id="prokat" name="Листовой прокат" />
+											<label for="prokat"></label>Листовой прокат
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">254 4291</div>
+											<div class="number__item">254 4292</div>
+											<div class="number__item">254 4293</div>
+											<div class="number__item">254 4294</div>
+											<div class="number__item">254 4295</div>
+											<div class="number__item">254 4296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent1">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" data-check="1" valueCheck="3" id="prokat2" name="Листовой прокат2" />
+												<label for="prokat2"></label> Листовой прокат2
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">154 4328</div>
+												<div class="number__item">154 4329</div>
+												<div class="number__item">154 4329</div>
+												<div class="number__item">154 4329</div>
+												<div class="number__item">154 4326</div>
+												<div class="number__item">154 4329</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent1">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" data-check="1" valueCheck="4" id="prokat3	" name="сортовой прокат" />
+											<label for="prokat3	"></label>сортовой прокат
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">154 4229</div>
+											<div class="number__item">154 4225</div>
+											<div class="number__item">154 4229</div>
+											<div class="number__item">164 4224</div>
+											<div class="number__item">154 4229</div>
+											<div class="number__item">184 4229 </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionBelarus cluster2 promotion3">
+								<div class="parent__col">
+									<div class="parent__name parent__title" data-parent="parent2">
+										<input class="custom-checkbox" type="checkbox" valueCheck="5" data-parentCheck="2" id="metizi" name="Метизы, изделия из металла" />
+										<label for="metizi"></label> Метизы, изделия из металла
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">15 5194</div>
+										<div class="number__item">154 5191</div>
+										<div class="number__item">154 5197</div>
+										<div class="number__item">15 5198</div>
+										<div class="number__item">154 5199</div>
+										<div class="number__item">14 5196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent2">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent2">
+											<input class="custom-checkbox" type="checkbox" data-check="2" valueCheck="6" id="krep" name="Крепежные изделия" />
+											<label for="krep"></label>Крепежные изделия
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">354 5291</div>
+											<div class="number__item">254 5292</div>
+											<div class="number__item">254 5293</div>
+											<div class="number__item">254 5294</div>
+											<div class="number__item">254 5295</div>
+											<div class="number__item">254 5296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent2">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" data-check="2" valueCheck="7" id="metalo" name="Металлоизделия" />
+												<label for="metalo"></label> Металлоизделия
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent2">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" data-check="2" valueCheck="8" id="krepe" name="Метизы, крепеж" />
+											<label for="krepe"></label>Метизы, крепеж
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tabs__item equipment" data-tab="equipment">
+						<div class="header">
+							<div class="header__title section_h4">Оборудование</div>
+							<div class="header__subtitle">Посещаемость главной страницы</div>
+						</div>
+						<!-- тут будет график-->
+						<div class="chart">
+							<canvas id="equipmentChart"></canvas>
+						</div>
+						<!-- тут будет график-->
+						<div class="statistics">
+							<div class="parentDate">
+								<div class="parent__col">
+									<div></div>
+									<div class="parent__numbers fat">
+										<p>янв.21</p>
+										<p>фев.21</p>
+										<p>мар.21</p>
+										<p>апр.21</p>
+										<p>май.21</p>
+										<p>июн.21</p>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionKazakhstan cluster1 promotion1">
+								<div class="parent__col">
+									<div class="parent__name" data-parent="parent3">
+										<input class="custom-checkbox" type="checkbox" valueCheck="9" data-parentCheck="4" id="detali" name="Детали и узлы машин и механизмов" />
+										<label for="detali"></label> Детали и узлы машин и механизмов
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">15 1294</div>
+										<div class="number__item">154 1191</div>
+										<div class="number__item">154 1197</div>
+										<div class="number__item">15 1198</div>
+										<div class="number__item">154 1199</div>
+										<div class="number__item">14 1196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent3">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent3">
+											<input class="custom-checkbox" type="checkbox" valueCheck="10" data-check="4" id="yzl" name=" Гидравлические узлы" />
+											<label for="yzl"></label>Гидравлические узлы
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">254 1291</div>
+											<div class="number__item">254 1292</div>
+											<div class="number__item">254 1293</div>
+											<div class="number__item">254 1294</div>
+											<div class="number__item">254 1295</div>
+											<div class="number__item">254 1296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent3">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" valueCheck="11" data-check="4" id="dvirateli" name="Двигатели" />
+												<label for="dvirateli"></label> Двигатели
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">154 1329</div>
+												<div class="number__item">154 1329</div>
+												<div class="number__item">154 1329</div>
+												<div class="number__item">154 1329</div>
+												<div class="number__item">154 1329</div>
+												<div class="number__item">154 1329</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent3">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" valueCheck="12" data-check="4" id="kreDet" name="Крепежные детали" />
+											<label for="kreDet"></label>Крепежные детали
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">154 1229</div>
+											<div class="number__item">154 1229</div>
+											<div class="number__item">154 1229</div>
+											<div class="number__item">154 1229</div>
+											<div class="number__item">154 1229</div>
+											<div class="number__item">154 1229 </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionBelarus cluster2 promotion3">
+								<div class="parent__col">
+									<div class="parent__name" data-parent="parent4">
+										<input class="custom-checkbox" type="checkbox" valueCheck="13" data-parentCheck="5" id="izmirot" name="Измерительные приборы и автоматика (КИП и А)" />
+										<label for="izmirot"></label> Измерительные приборы и автоматика (КИП и А)
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">15 2194</div>
+										<div class="number__item">154 2191</div>
+										<div class="number__item">154 2197</div>
+										<div class="number__item">15 2198</div>
+										<div class="number__item">154 2199</div>
+										<div class="number__item">14 2196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent4">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent4">
+											<input class="custom-checkbox" type="checkbox" valueCheck="14" data-check="5" id="ves" name="Весы" />
+											<label for="ves"></label>Весы
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">254 2291</div>
+											<div class="number__item">254 2292</div>
+											<div class="number__item">254 2293</div>
+											<div class="number__item">254 2294</div>
+											<div class="number__item">254 2295</div>
+											<div class="number__item">254 2296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent4">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" valueCheck="15" data-check="5" id="geod" name="Геодезические приборы" />
+												<label for="geod"></label> Геодезические приборы
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">154 2329</div>
+												<div class="number__item">154 2329</div>
+												<div class="number__item">154 2329</div>
+												<div class="number__item">154 2329</div>
+												<div class="number__item">154 2329</div>
+												<div class="number__item">154 2329</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent4">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" valueCheck="16" id="datch" data-check="5" name="Датчики" />
+											<label for="datch"></label>Датчики
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">154 2229</div>
+											<div class="number__item">154 2229</div>
+											<div class="number__item">154 2229</div>
+											<div class="number__item">154 2229</div>
+											<div class="number__item">154 2229</div>
+											<div class="number__item">154 2229</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionKazakhstan cluster2 promotion2">
+								<div class="parent__col">
+									<div class="parent__name" data-parent="parent5">
+										<input class="custom-checkbox" type="checkbox" valueCheck="17" data-parentCheck="6" id="oborud" name="Оборудование для сферы услуг" />
+										<label for="oborud"></label> Оборудование для сферы услуг
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">15 3194</div>
+										<div class="number__item">154 3191</div>
+										<div class="number__item">154 3197</div>
+										<div class="number__item">15 3198</div>
+										<div class="number__item">154 3199</div>
+										<div class="number__item">14 3196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent5">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent5">
+											<input class="custom-checkbox" type="checkbox" valueCheck="18" data-check="6" id="bankov" name="Банковское оборудование" />
+											<label for="bankov"></label>Банковское оборудование
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">254 3291</div>
+											<div class="number__item">254 3292</div>
+											<div class="number__item">254 3293</div>
+											<div class="number__item">254 3294</div>
+											<div class="number__item">254 3295</div>
+											<div class="number__item">254 3296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent5">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" valueCheck="19" data-check="6" id="klining" name="Клининговое оборудование" />
+												<label for="klining"></label> Клининговое оборудование
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">154 3329</div>
+												<div class="number__item">154 3329</div>
+												<div class="number__item">154 3329</div>
+												<div class="number__item">154 3329</div>
+												<div class="number__item">154 3329</div>
+												<div class="number__item">154 3329</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent5">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" valueCheck="20" data-check="6" id="materislRek" name="Материалы для производства рекламы" />
+											<label for="materislRek"></label>Материалы для производства рекламы
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">154 3229</div>
+											<div class="number__item">154 3229</div>
+											<div class="number__item">154 3229</div>
+											<div class="number__item">154 3229</div>
+											<div class="number__item">154 3229</div>
+											<div class="number__item">154 3229</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tabs__item goods" data-tab="goods">
+						<div class="header">
+							<div class="header__title section_h4">Потребительские товары</div>
+							<div class="header__subtitle">Посещаемость главной страницы</div>
+						</div>
+					</div>
+					<div class="tabs__item food" data-tab="food">
+						<div class="header">
+							<div class="header__title section_h4">Продовольствие, сельское хозяйство</div>
+							<div class="header__subtitle">Посещаемость главной страницы</div>
+						</div>
+					</div>
+					<div class="tabs__item build" data-tab="build">
+						<div class="header">
+							<div class="header__title section_h4">Строительство и ремонт</div>
+							<div class="header__subtitle">Посещаемость главной страницы</div>
+						</div>
+					</div>
+					<div class="tabs__item transport" data-tab="transport">
+						<div class="header">
+							<div class="header__title section_h4">Транспорт</div>
+							<div class="header__subtitle">Посещаемость главной страницы</div>
+						</div>
+						<div class="chart">
+							<canvas id="transportChart"></canvas>
+						</div>
+						<!-- тут будет график-->
+						<div class="statistics">
+							<div class="parentDate">
+								<div class="parent__col">
+									<div></div>
+									<div class="parent__numbers fat">
+										<p>янв.21</p>
+										<p>фев.21</p>
+										<p>мар.21</p>
+										<p>апр.21</p>
+										<p>май.21</p>
+										<p>июн.21</p>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionKazakhstan cluster1 promotion1">
+								<div class="parent__col">
+									<div class="parent__name" data-parent="parent6">
+										<input class="custom-checkbox" type="checkbox" valueCheck="21" data-parentCheck="3" id="autuserv" name="Автосервисное оборудование" />
+										<label for="autuserv"></label> Автосервисное оборудование
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">5 5194</div>
+										<div class="number__item">14 5191</div>
+										<div class="number__item">14 5197</div>
+										<div class="number__item">5 5198</div>
+										<div class="number__item">6 5199</div>
+										<div class="number__item">4 5196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent6">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent6">
+											<input class="custom-checkbox" type="checkbox" valueCheck="22" data-check="3" id="garaj" name="Гаражные ворота, шлагбаумы" />
+											<label for="garaj"></label>Гаражные ворота, шлагбаумы
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">25 5291</div>
+											<div class="number__item">25 5292</div>
+											<div class="number__item">25 5293</div>
+											<div class="number__item">25 5294</div>
+											<div class="number__item">25 5295</div>
+											<div class="number__item">25 5296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent6">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" valueCheck="23" data-check="3" id="oborAut" name="Оборудование для автомоек" />
+												<label for="oborAut"></label> Оборудование для автомоек
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">14 5328</div>
+												<div class="number__item">14 5329</div>
+												<div class="number__item">14 5329</div>
+												<div class="number__item">14 5329</div>
+												<div class="number__item">14 5326</div>
+												<div class="number__item">14 5329</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent6">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" valueCheck="24" data-check="3" id="azs" name="Оборудование для АЗС" />
+											<label for="azs"></label>Оборудование для АЗС
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">54 5229</div>
+											<div class="number__item">54 5225</div>
+											<div class="number__item">54 5229</div>
+											<div class="number__item">64 5224</div>
+											<div class="number__item">54 5229</div>
+											<div class="number__item">84 5229 </div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="parent regionBelarus cluster2 promotion3">
+								<div class="parent__col">
+									<div class="parent__name" data-parent="parent7">
+										<input class="custom-checkbox" type="checkbox" valueCheck="25" data-parentCheck="10" id="metaIzMe" name="Метизы, изделия из металла" />
+										<label for="metaIzMe"></label> Метизы, изделия из металла
+									</div>
+									<div class="parent__numbers number">
+										<div class="number__item">15 5194</div>
+										<div class="number__item">154 5191</div>
+										<div class="number__item">154 5197</div>
+										<div class="number__item">15 5198</div>
+										<div class="number__item">54 5199</div>
+										<div class="number__item">14 5196</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent7">
+									<div class="children__col">
+										<div class="parent__name" data-parentChildren="parent7">
+											<input class="custom-checkbox" type="checkbox" valueCheck="26" data-check="10" id="izdeliaKro" name="Крепежные изделия" />
+											<label for="izdeliaKro"></label>Крепежные изделия
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">254 5291</div>
+											<div class="number__item">254 5292</div>
+											<div class="number__item">254 5293</div>
+											<div class="number__item">254 5294</div>
+											<div class="number__item">254 5295</div>
+											<div class="number__item">254 5296</div>
+										</div>
+									</div>
+									<div class="children2" data-children="parent7">
+										<div class="children__col">
+											<div class="parent__name">
+												<input class="custom-checkbox" type="checkbox" valueCheck="27" data-check="10" id="opdd" name="Металлоизделия" />
+												<label for="opdd"></label> Металлоизделия
+											</div>
+											<div class="parent__numbers number">
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+												<div class="number__item">154 539</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="children" data-children="parent7">
+									<div class="children__col">
+										<div class="parent__name">
+											<input class="custom-checkbox" type="checkbox" valueCheck="28" data-check="10" id="mezkej" name="Метизы, крепеж" />
+											<label for="mezkej"></label>Метизы, крепеж
+										</div>
+										<div class="parent__numbers number">
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+											<div class="number__item">154 529</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button class="statistics__btnAdd">Добавить для суммирования</button>
+				<div class="trafficSumWrapper">
+					<p class="section_h5 SumWrapper__title fat">Суммирование трафика</p>
+					<div class="trafficSum__tableMount trafficSum_mount">
+						<div></div>
+						<div></div>
+						<div class="traffic__number fat">
+							<p>янв.21</p>
+							<p>фев.21</p>
+							<p>мар.21</p>
+							<p>апр.21</p>
+							<p>май.21</p>
+							<p>июн.21</p>
+						</div>
+					</div>
+					<div class="trafficSum"></div>
+					<div class="trafficResult">
+						<p></p>
+						<p class="result__title">общий трафик</p>
+						<div class="trafficResult__number"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script defer src="https://www.pulscen.ru/system/ckeditor_assets/attachments/319897/main_bundle.js"></script></body
+	><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</html>

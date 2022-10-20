@@ -1,0 +1,518 @@
+<!-- @format -->
+include ./miksins.pug
+
+// у каждого названия должен быть name
+//valueCheck для каждого уникальный
+
+//- data-parentCheck и data-check работают в связке уникально название для каждого блока
+// data-parent, data-children, data-parentChildren имеет одно значение и  уникальный для каждой числовой группы 
+
+// в переменной labelsArr хранится массив с месяцами для графиками
+
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+		title= "оставить товары"
+	body.js-body
+		.main_content
+			.adjustable.section_h4
+				p.adjustable__item#all Все рубрики
+				p.adjustable__item#material Материалы
+				p.adjustable__item#equipment Оборудование
+				p.adjustable__item#goods Потребительские товары
+				p.adjustable__item#food Продовольствие, сельское хозяйство
+				p.adjustable__item#build Строительство и ремонт
+				p.adjustable__item#transport Транспорт
+			.content 
+				.filters
+					.filters__item
+						label(for='region') Регионы
+						select.filters__section
+							option(value='all') Все регионы
+							option(value='regionKazakhstan') Казахстан
+							option(value='regionBelarus') Беларусь
+							option(value='regionPovolzhye') Поволжье
+					.filters__item
+						label(for='cluster') Статистика кластеров
+						select.filters__section
+							option(value='all') Все
+							option(value='cluster1') кластер 1
+							option(value='cluster2') кластер 2
+							option(value='cluster3') кластер 3
+					.filters__item
+						label(for='promotion') Статистика внутренней рекламы
+						select.filters__section
+							option(value='all') Все
+							option(value='promotion1') реклама1
+							option(value='promotion2') реклама2
+							option(value='promotion3') реклама3
+				.tabs
+					.tabs__item.all(data-tab='all')
+						p.section_h4.fat все рубрики
+						.all__wrapper 
+							.all__block 
+								.all__btn#material Материалы
+								.all__btn#equipment Оборудование
+								.all__btn#goods Потребительские товары
+							.all__block 
+								.all__btn#food Продовольствие, сельское хозяйство
+								.all__btn#build Строительство и ремонт
+								.all__btn#transport Транспорт
+					.tabs__item.material(data-tab='material')
+						.header 
+							.header__title.section_h4 Материалы
+							.header__subtitle Посещаемость главной страницы
+						// тут будет график
+						.chart
+							canvas#materialChart
+						// тут будет график
+						.statistics
+							//- .statistics__month
+							.parentDate
+								.parent__col
+									div
+									.parent__numbers.fat
+										p янв.21
+										p фев.21
+										p мар.21
+										p апр.21
+										p май.21
+										p июн.21
+							.parent.regionKazakhstan.cluster1.promotion1
+								.parent__col
+									.parent__name(data-parent='parent1')
+											input.custom-checkbox(type='checkbox' valueCheck='1' data-parentCheck='1' id='metaltt'  name= 'Металлы, металлопрокат черный и нержавеющий')
+											label(for="metaltt") 
+											| Металлы, металлопрокат черный и нержавеющий
+									.parent__numbers.number 
+										.number__item 15 4194
+										.number__item 154 4191
+										.number__item 154 4197
+										.number__item 15 4198
+										.number__item 154 4199
+										.number__item 14 4196
+								.children(data-children='parent1')
+									.children__col 
+										.parent__name(data-parentChildren='parent1')
+											input.custom-checkbox(type='checkbox' data-check='1' valueCheck='2' id='prokat' name ="Листовой прокат")
+											label(for="prokat")
+											| Листовой прокат
+										.parent__numbers.number 
+											.number__item 254 4291
+											.number__item 254 4292
+											.number__item 254 4293
+											.number__item 254 4294
+											.number__item 254 4295
+											.number__item 254 4296
+									.children2(data-children='parent1')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' data-check='1' valueCheck='3' id='prokat2' name ="Листовой прокат2")
+												label(for="prokat2")
+												|  Листовой прокат2
+											.parent__numbers.number 
+												.number__item 154 4328
+												.number__item 154 4329
+												.number__item 154 4329
+												.number__item 154 4329
+												.number__item 154 4326
+												.number__item 154 4329
+								.children(data-children='parent1')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' data-check='1' valueCheck='4' id='prokat3	' name ="сортовой прокат")
+											label(for="prokat3	")
+											| сортовой прокат
+										.parent__numbers.number 
+											.number__item 154 4229
+											.number__item 154 4225
+											.number__item 154 4229
+											.number__item 164 4224
+											.number__item 154 4229
+											.number__item 184 4229			
+							.parent.regionBelarus.cluster2.promotion3
+								.parent__col
+									.parent__name.parent__title(data-parent='parent2')
+											input.custom-checkbox(type='checkbox'  valueCheck='5' data-parentCheck='2' id='metizi' name= 'Метизы, изделия из металла')
+											label(for="metizi")
+											|   Метизы, изделия из металла
+									.parent__numbers.number 
+										.number__item 15 5194
+										.number__item 154 5191
+										.number__item 154 5197
+										.number__item 15 5198
+										.number__item 154 5199
+										.number__item 14 5196
+								.children(data-children='parent2')
+									.children__col 
+										.parent__name(data-parentChildren='parent2')
+											input.custom-checkbox(type='checkbox' data-check='2' valueCheck='6' id='krep' name ="Крепежные изделия")
+											label(for="krep")
+											| Крепежные изделия
+										.parent__numbers.number 
+											.number__item 354 5291
+											.number__item 254 5292
+											.number__item 254 5293
+											.number__item 254 5294
+											.number__item 254 5295
+											.number__item 254 5296
+									.children2(data-children='parent2')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' data-check='2' valueCheck='7' id='metalo' name ="Металлоизделия")
+												label(for="metalo")
+												|  Металлоизделия
+											.parent__numbers.number 
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+								.children(data-children='parent2')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' data-check='2' valueCheck='8' id='krepe' name ="Метизы, крепеж")
+											label(for="krepe")
+											| Метизы, крепеж
+										.parent__numbers.number 
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+					.tabs__item.equipment(data-tab='equipment')
+						.header 
+							.header__title.section_h4 Оборудование
+							.header__subtitle Посещаемость главной страницы
+						// тут будет график
+						.chart
+							canvas#equipmentChart
+						// тут будет график
+						.statistics
+							//- .statistics__month
+							.parentDate
+								.parent__col
+									div
+									.parent__numbers.fat
+										p янв.21
+										p фев.21
+										p мар.21
+										p апр.21
+										p май.21
+										p июн.21
+							.parent.regionKazakhstan.cluster1.promotion1
+								.parent__col
+									.parent__name(data-parent='parent3')
+											input.custom-checkbox(type='checkbox' valueCheck='9' data-parentCheck='4' id='detali' name= 'Детали и узлы машин и механизмов')
+											label(for="detali")
+											|  Детали и узлы машин и механизмов
+									.parent__numbers.number 
+										.number__item 15 1294
+										.number__item 154 1191
+										.number__item 154 1197
+										.number__item 15 1198
+										.number__item 154 1199
+										.number__item 14 1196
+								.children(data-children='parent3')
+									.children__col 
+										.parent__name(data-parentChildren='parent3')
+											input.custom-checkbox(type='checkbox' valueCheck='10' data-check='4' id='yzl' name =" Гидравлические узлы")
+											label(for="yzl")
+											| Гидравлические узлы
+										.parent__numbers.number 
+											.number__item 254 1291
+											.number__item 254 1292
+											.number__item 254 1293
+											.number__item 254 1294
+											.number__item 254 1295
+											.number__item 254 1296
+									.children2(data-children='parent3')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' valueCheck='11' data-check='4' id='dvirateli' name ="Двигатели")
+												label(for="dvirateli")
+												|  Двигатели
+											.parent__numbers.number 
+												.number__item 154 1329
+												.number__item 154 1329
+												.number__item 154 1329
+												.number__item 154 1329
+												.number__item 154 1329
+												.number__item 154 1329
+								.children(data-children='parent3')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' valueCheck='12' data-check='4' id='kreDet' name ="Крепежные детали")
+											label(for="kreDet")
+											| Крепежные детали
+										.parent__numbers.number 
+											.number__item 154 1229
+											.number__item 154 1229
+											.number__item 154 1229
+											.number__item 154 1229
+											.number__item 154 1229
+											.number__item 154 1229			
+							.parent.regionBelarus.cluster2.promotion3
+								.parent__col
+									.parent__name(data-parent='parent4')
+											input.custom-checkbox(type='checkbox' valueCheck='13' data-parentCheck='5'  id='izmirot' name='Измерительные приборы и автоматика (КИП и А)')
+											label(for="izmirot")
+											|   Измерительные приборы и автоматика (КИП и А)
+									.parent__numbers.number 
+										.number__item 15 2194
+										.number__item 154 2191
+										.number__item 154 2197
+										.number__item 15 2198
+										.number__item 154 2199
+										.number__item 14 2196
+								.children(data-children='parent4')
+									.children__col 
+										.parent__name(data-parentChildren='parent4')
+											input.custom-checkbox(type='checkbox' valueCheck='14' data-check='5' id='ves' name ="Весы")
+											label(for="ves")
+											| Весы
+										.parent__numbers.number 
+											.number__item 254 2291
+											.number__item 254 2292
+											.number__item 254 2293
+											.number__item 254 2294
+											.number__item 254 2295
+											.number__item 254 2296
+									.children2(data-children='parent4')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' valueCheck='15' data-check='5' id='geod' name ="Геодезические приборы")
+												label(for="geod")
+												|  Геодезические приборы
+											.parent__numbers.number 
+												.number__item 154 2329
+												.number__item 154 2329
+												.number__item 154 2329
+												.number__item 154 2329
+												.number__item 154 2329
+												.number__item 154 2329
+								.children(data-children='parent4')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' valueCheck='16' id='datch' data-check='5' name ="Датчики")
+											label(for="datch")
+											| Датчики
+										.parent__numbers.number 
+											.number__item 154 2229
+											.number__item 154 2229
+											.number__item 154 2229
+											.number__item 154 2229
+											.number__item 154 2229
+											.number__item 154 2229
+							.parent.regionKazakhstan.cluster2.promotion2
+								.parent__col
+									.parent__name(data-parent='parent5')
+											input.custom-checkbox(type='checkbox' valueCheck='17' data-parentCheck='6' id='oborud' name= 'Оборудование для сферы услуг')
+											label(for="oborud")
+											|  Оборудование для сферы услуг
+									.parent__numbers.number 
+										.number__item 15 3194
+										.number__item 154 3191
+										.number__item 154 3197
+										.number__item 15 3198
+										.number__item 154 3199
+										.number__item 14 3196
+								.children(data-children='parent5')
+									.children__col 
+										.parent__name(data-parentChildren='parent5')
+											input.custom-checkbox(type='checkbox' valueCheck='18' data-check='6' id='bankov' name ="Банковское оборудование")
+											label(for="bankov")
+											| Банковское оборудование
+										.parent__numbers.number 
+											.number__item 254 3291
+											.number__item 254 3292
+											.number__item 254 3293
+											.number__item 254 3294
+											.number__item 254 3295
+											.number__item 254 3296
+									.children2(data-children='parent5')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' valueCheck='19' data-check='6' id='klining' name ="Клининговое оборудование")
+												label(for="klining")
+												|  Клининговое оборудование
+											.parent__numbers.number 
+												.number__item 154 3329
+												.number__item 154 3329
+												.number__item 154 3329
+												.number__item 154 3329
+												.number__item 154 3329
+												.number__item 154 3329
+								.children(data-children='parent5')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' valueCheck='20' data-check='6' id='materislRek' name ="Материалы для производства рекламы")
+											label(for="materislRek")
+											| Материалы для производства рекламы
+										.parent__numbers.number 
+											.number__item 154 3229
+											.number__item 154 3229
+											.number__item 154 3229
+											.number__item 154 3229
+											.number__item 154 3229
+											.number__item 154 3229
+						//- button.statistics__btnAdd Добавить для суммирования
+					.tabs__item.goods(data-tab='goods')
+						.header 
+							.header__title.section_h4 Потребительские товары
+							.header__subtitle Посещаемость главной страницы
+					.tabs__item.food(data-tab='food')
+						.header 
+							.header__title.section_h4 Продовольствие, сельское хозяйство
+							.header__subtitle Посещаемость главной страницы
+					.tabs__item.build(data-tab='build')
+						.header 
+							.header__title.section_h4 Строительство и ремонт
+							.header__subtitle Посещаемость главной страницы
+					.tabs__item.transport(data-tab='transport')
+						.header 
+							.header__title.section_h4 Транспорт
+							.header__subtitle Посещаемость главной страницы
+						.chart
+							canvas#transportChart
+						// тут будет график
+						.statistics
+							//- .statistics__month
+							.parentDate
+								.parent__col
+									div
+									.parent__numbers.fat
+										p янв.21
+										p фев.21
+										p мар.21
+										p апр.21
+										p май.21
+										p июн.21
+							.parent.regionKazakhstan.cluster1.promotion1
+								.parent__col
+									.parent__name(data-parent='parent6')
+											input.custom-checkbox(type='checkbox' valueCheck='21' data-parentCheck='3' id='autuserv' name= 'Автосервисное оборудование')
+											label(for="autuserv")
+											|  Автосервисное оборудование
+									.parent__numbers.number 
+										.number__item 5 5194
+										.number__item 14 5191
+										.number__item 14 5197
+										.number__item 5 5198
+										.number__item 6 5199
+										.number__item 4 5196
+								.children(data-children='parent6')
+									.children__col 
+										.parent__name(data-parentChildren='parent6')
+											input.custom-checkbox(type='checkbox' valueCheck='22' data-check='3' id='garaj' name ="Гаражные ворота, шлагбаумы")
+											label(for="garaj")
+											| Гаражные ворота, шлагбаумы
+										.parent__numbers.number 
+											.number__item 25 5291
+											.number__item 25 5292
+											.number__item 25 5293
+											.number__item 25 5294
+											.number__item 25 5295
+											.number__item 25 5296
+									.children2(data-children='parent6')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' valueCheck='23' data-check='3' id='oborAut' name ="Оборудование для автомоек")
+												label(for="oborAut")
+												|  Оборудование для автомоек
+											.parent__numbers.number 
+												.number__item 14 5328
+												.number__item 14 5329
+												.number__item 14 5329
+												.number__item 14 5329
+												.number__item 14 5326
+												.number__item 14 5329
+								.children(data-children='parent6')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' valueCheck='24' data-check='3' id='azs' name ="Оборудование для АЗС")
+											label(for="azs")
+											| Оборудование для АЗС
+										.parent__numbers.number 
+											.number__item 54 5229
+											.number__item 54 5225
+											.number__item 54 5229
+											.number__item 64 5224
+											.number__item 54 5229
+											.number__item 84 5229			
+							.parent.regionBelarus.cluster2.promotion3
+								.parent__col
+									.parent__name(data-parent='parent7')
+											input.custom-checkbox(type='checkbox' valueCheck='25' data-parentCheck='10' id='metaIzMe' name= 'Метизы, изделия из металла')
+											label(for="metaIzMe")
+											|   Метизы, изделия из металла
+									.parent__numbers.number 
+										.number__item 15 5194
+										.number__item 154 5191
+										.number__item 154 5197
+										.number__item 15 5198
+										.number__item 54 5199
+										.number__item 14 5196
+								.children(data-children='parent7')
+									.children__col 
+										.parent__name(data-parentChildren='parent7')
+											input.custom-checkbox(type='checkbox' valueCheck='26' data-check='10' id='izdeliaKro' name ="Крепежные изделия")
+											label(for="izdeliaKro")
+											| Крепежные изделия
+										.parent__numbers.number 
+											.number__item 254 5291
+											.number__item 254 5292
+											.number__item 254 5293
+											.number__item 254 5294
+											.number__item 254 5295
+											.number__item 254 5296
+									.children2(data-children='parent7')
+										.children__col 
+											.parent__name
+												input.custom-checkbox(type='checkbox' valueCheck='27' data-check='10' id='opdd' name ="Металлоизделия")
+												label(for="opdd")
+												|  Металлоизделия
+											.parent__numbers.number 
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+												.number__item 154 539
+								.children(data-children='parent7')
+									.children__col 
+										.parent__name
+											input.custom-checkbox(type='checkbox' valueCheck='28' data-check='10' id='mezkej' name ="Метизы, крепеж")
+											label(for="mezkej")
+											| Метизы, крепеж
+										.parent__numbers.number 
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+											.number__item 154 529
+							
+				button.statistics__btnAdd Добавить для суммирования
+				.trafficSumWrapper
+							p.section_h5.SumWrapper__title.fat Суммирование трафика
+							.trafficSum__tableMount.trafficSum_mount
+									div
+									div
+									.traffic__number.fat
+										p янв.21
+										p фев.21
+										p мар.21
+										p апр.21
+										p май.21
+										p июн.21
+							.trafficSum
+							.trafficResult
+								p
+								p.result__title общий трафик
+								.trafficResult__number
+	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
